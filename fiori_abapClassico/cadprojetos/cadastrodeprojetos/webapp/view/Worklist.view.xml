@@ -1,0 +1,80 @@
+<mvc:View
+    controllerName="portfolio.cadastrodeprojetos.controller.Worklist"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:semantic="sap.f.semantic">
+
+    <semantic:SemanticPage
+        id="page"
+        headerPinnable="false"
+        toggleHeaderOnTitleClick="false">
+
+        <semantic:titleHeading>
+            <Title
+                text="{i18n>worklistTitle}"
+                level="H2"/>
+        </semantic:titleHeading>
+
+        <semantic:content>
+            <Table
+                id="table"
+                width="auto"
+                items="{
+                        path: '/ProjetoSet',
+                        factory: '.carregarItens',
+                        sorter: {
+                            path: 'Id',
+                            descending: true
+                        }
+                    }"
+                noDataText="{worklistView>/tableNoDataText}"
+                busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+                growing="true"
+                growingScrollToLoad="true"
+                updateFinished=".onUpdateFinished">
+
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            id="tableHeader"
+                            text="{worklistView>/worklistTableTitle}"
+                            level="H3"/>
+                        <ToolbarSpacer />
+                        <Button text="Criar Projeto" press=".onCriarProjeto" />
+                        <SearchField
+                            id="searchField"
+                            tooltip="{i18n>worklistSearchTooltip}"
+                            search=".onSearch">
+                            <layoutData>
+                                <OverflowToolbarLayoutData
+                                    maxWidth="200px"
+                                    priority="NeverOverflow"/>
+                            </layoutData>
+                        </SearchField>
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column id="nameColumn">
+                        <Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
+                    </Column>
+                    <Column id="tipoProjetoColumn" hAlign="Begin">
+                        <Text text="Tipo de Projeto" id="tipoProjetoColumnTitle"/>
+                    </Column>
+                    <Column id="DtInicioProjetoColumn" hAlign="Center">
+                        <Text text="Início" id="DtInicioProjetoColumnTitle"/>
+                    </Column>
+                    <Column id="DtFimProjetoColumn" hAlign="Center">
+                        <Text text="Fim" id="DtFimProjetoColumnTitle"/>
+                    </Column>
+                    <Column id="StatusProjetoColumn" hAlign="Center">
+                        <Text text="Situação" id="StatusProjetoColumnTitle"/>
+                    </Column>
+                </columns>
+                <!-- factory function para carregar os itens pelo controller -->
+            </Table>
+        </semantic:content>
+
+    </semantic:SemanticPage>
+
+</mvc:View>

@@ -1,0 +1,109 @@
+<mvc:View
+    controllerName="portfolio.cadastrodeprojetos.controller.Object"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:semantic="sap.f.semantic">
+
+    <semantic:SemanticPage
+        id="page"
+        headerPinnable="false"
+        showFooter="true"
+        toggleHeaderOnTitleClick="false"
+        busy="{objectView>/busy}"
+        busyIndicatorDelay="{objectView>/delay}">
+
+        <semantic:titleHeading>
+            <Title
+                text="Editando projeto: '{Nome}'"
+                level="H2"/>
+                
+        </semantic:titleHeading>
+        
+        <semantic:titleCustomTextActions>
+			<Button text="Excluir Projeto" type="Reject" press="onExcluirProjeto" />
+		</semantic:titleCustomTextActions>
+
+        <semantic:headerContent />
+        <l:VerticalLayout class="sapUiContentPadding" width="100%">
+            <f:SimpleForm
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+                >
+                <Label text="ID" />
+                <Text text="{Id}" />
+
+                <Label text="Nome" />
+                <Input id="nome" value="{Nome}" />
+
+                <Label text="Tipo" />
+                <Select
+					forceSelection="false"
+					selectedKey="{Tipo}"
+                    id="tipo">
+					<core:Item key="0" text="ABAP" />
+                    <core:Item key="1" text="Fiori - ABAP Desenvolvimento Clássico" />
+                    <core:Item key="2" text="Fiori - ABAP Programming Model" />
+                    <core:Item key="3" text="Fiori - RAP (ABAP RESTful Application Programming Model)" />
+                    <core:Item key="X" text="OUTRO" />
+				</Select>
+
+                <Label text="Detalhes" />
+                <TextArea id="detalhes" value="{Descricao}"
+                    showExceededText="true" maxLength="5000" width="100%" height="150px"
+                    valueState="{= ${Descricao}.length > 5000 ? 'Warning' : 'None' }" 
+                    valueLiveUpdate="false" liveChange="handleLiveChange" />
+
+				<Label text="Data Início" labelFor="DataInicioInput" />
+				<DatePicker
+					id="DataInicioInput"
+					value="{
+                        'path': 'DataInicio',
+                        'type':'sap.ui.model.type.Date',
+                        'formatOptions': {
+							'pattern': 'dd/MM/yyyy',
+                            'strictParsing': true, 
+                            'UTC': true
+						}
+                    }"
+					class="sapUiSmallMarginBottom"/>
+                <Label text="Data Fim" labelFor="DataFimInput" />
+                <DatePicker
+					id="DataFimInput"
+					value="{
+                        'path': 'DataFim',
+                        'type':'sap.ui.model.type.Date',
+						'formatOptions': {
+							'pattern': 'dd/MM/yyyy',
+                            'strictParsing': true, 
+                            'UTC': true
+						}
+                    }"
+					class="sapUiSmallMarginBottom"/>
+
+            </f:SimpleForm>
+        </l:VerticalLayout>
+
+        <semantic:footerCustomActions>
+            <Button type="Accept" text="Gravar" press="onGravar" />
+            <Button type="Reject" text="Cancelar" press="onCancelar" />
+        </semantic:footerCustomActions>
+
+    </semantic:SemanticPage>
+
+</mvc:View>

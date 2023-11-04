@@ -1,0 +1,3 @@
+etrutura: zest_ordens_530
+programa: z_ordenscliente_530
+smartform: Z_ORDENSCLIENTE_SFORM_530

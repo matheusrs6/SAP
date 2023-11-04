@@ -1,0 +1,6 @@
+pacote: zpack_portfolio_530
+request: S4HK903284
+
+catálogo: zbc_portfolio
+grupo: zbg_portfolio
+role: zbr_portfolio

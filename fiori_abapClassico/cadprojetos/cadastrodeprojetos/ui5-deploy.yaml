@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.6"
+metadata:
+  name: portfolio.cadastrodeprojetos
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: https://lnl-s4h.opustech.com.br:5200/
+        app:
+          name: ZBSP_CADPROJ530
+          description: Cadastro de Projetos
+          package: zpack_portfolio_530
+          transport: S4HK903284
+        exclude:
+          - /test/

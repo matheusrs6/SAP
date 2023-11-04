@@ -1,0 +1,27 @@
+tela de cadastro de projetos pessoais
+campo de Nome do projeto
+tipo de projeto (outro cadastro para tipos d projetos, ex. Abap, Abap clássico p/ Fiori, Rap, etc)
+anotações?
+data de inicio
+data de conclusão
+flag q informa se o projeto está em aberto ou já foi finalizado
+
+dominio p/ campo tipo do projeto: Z_TIPOPROJETO_530
+domínio p/ campo de data do projeto: Z_DATAPROJETO_530
+domínio p/ campo de status do projeto: Z_STATUSPROJETO_530
+elementos de dados:
+	tipo: Z_TIPOPROJETO_530
+	nome: Z_NOMEPROJETO_530
+	descrição: Z_DESCRICAOPROJETO_530
+	data inicio: Z_DATAINICIOPROJETO_530
+	data fim: Z_DATAFIMPROJETO_530
+	status: Z_STATUSPROJETO_530
+tabela se11: ztab_projetos530
+projeto segw: z_projetos_530
+serviço: Z_PROJETOS_530_SRV
+URL do serviço para bloco dinâmico: https://lnl-s4h.opustech.com.br:5200/sap/opu/odata/sap/Z_PROJETOS_530_SRV/ProjetoSet/$count
+Aplicação BSP: zbsp_cadproj530
+
+https://lnl-s4h.opustech.com.br:5200/sap/bc/ui5_ui5/sap/zbsp_cadproj530
+
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="Z_PROJETOS_530_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Projeto" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="IdProjeto" sap:updatable="false"/>
+                <Property Name="Tipo" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="TipoProjeto"/>
+                <Property Name="Nome" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="NomeProjeto"/>
+                <Property Name="Descricao" Type="Edm.String" MaxLength="5000" sap:unicode="false" sap:label="DescricaoProjeto" sap:sortable="false"/>
+                <Property Name="DataInicio" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="DtInicialProj"/>
+                <Property Name="DataFim" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="DtFinalProj"/>
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="StProjeto"/>
+            </EntityType>
+            <EntityContainer Name="Z_PROJETOS_530_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ProjetoSet" EntityType="Z_PROJETOS_530_SRV.Projeto" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://lnl-s4h.opustech.com.br:5200/sap/opu/odata/sap/Z_PROJETOS_530_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://lnl-s4h.opustech.com.br:5200/sap/opu/odata/sap/Z_PROJETOS_530_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
